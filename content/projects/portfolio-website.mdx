@@ -1,0 +1,57 @@
+---
+title: "Personal Portfolio & Blog"
+description: "The very website you're reading — built with Next.js, TypeScript, Tailwind CSS, and MDX."
+tags: ["Next.js", "TypeScript", "Tailwind CSS", "MDX"]
+github: "https://github.com/ThalesZago/zagothales"
+demo: "https://zagothales.com"
+date: "2025-03-01"
+---
+
+## Overview
+
+This is the portfolio and blog you're currently reading. Built with a focus on simplicity, performance, and long-term maintainability.
+
+The goal was to have a personal site that doesn't feel like a template, loads instantly, and is easy to update without touching a CMS dashboard or wrangling a database.
+
+## Tech Stack
+
+- **Framework**: Next.js 16 with App Router
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS (v4)
+- **Content**: MDX files with `gray-matter` for frontmatter parsing
+- **Syntax highlighting**: `rehype-highlight` with atom-one-dark theme
+- **Fonts**: Geist Sans & Geist Mono via `next/font`
+- **Hosting**: Vercel
+
+## Features
+
+- Static generation for all pages at build time
+- MDX-based content management for both blog posts and projects
+- Code syntax highlighting for all fenced code blocks
+- Dark mode via `prefers-color-scheme` — no JS required
+- Fully responsive, mobile-first layout
+- RSS feed at `/feed.xml`
+- SEO-optimized with Open Graph metadata per page
+
+## How Content Works
+
+Blog posts and projects are plain `.mdx` files with YAML frontmatter:
+
+```mdx
+---
+title: "My Post Title"
+date: "2025-01-15"
+excerpt: "A short summary of the post."
+tags: ["tag1", "tag2"]
+---
+
+Post content goes here...
+```
+
+No admin panel, no API. Just write a file, commit, and deploy.
+
+## Lessons Learned
+
+Keeping things simple is harder than it sounds. There's always a temptation to add more tooling, more features, more abstraction. The discipline to say "no" to complexity is the actual skill.
+
+If you're building your own portfolio site: start smaller than you think you need to.

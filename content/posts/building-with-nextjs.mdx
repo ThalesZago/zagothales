@@ -1,0 +1,58 @@
+---
+title: "Why I Chose Next.js for My Portfolio"
+date: "2025-03-10"
+excerpt: "Breaking down the tech choices behind this site — why Next.js, why MDX, and why I kept the stack deliberately simple."
+tags: ["next.js", "typescript", "web"]
+---
+
+When I decided to rebuild my personal site, I had one simple goal: something I actually want to maintain.
+
+## The Requirements
+
+Before picking a stack, I wrote down what I actually needed:
+
+1. **Static pages** — no database, no CMS complexity
+2. **A blog** — with proper syntax highlighting and readable typography
+3. **A projects section** — easy to update
+4. **Fast and deployable** — zero-config hosting
+
+That list basically wrote the stack for me.
+
+## Why Next.js
+
+Next.js with the App Router gives me everything in one package: static generation, file-based routing, image optimization, font loading, and zero-config deployment to Vercel.
+
+I don't need a separate static site generator. I don't need to configure webpack from scratch. It just works.
+
+## Why MDX
+
+MDX lets me write content in Markdown while having the option to drop in React components when needed. For a developer blog, this is ideal.
+
+```typescript
+// Reading MDX files from the filesystem
+import matter from 'gray-matter'
+import fs from 'fs'
+
+const raw = fs.readFileSync('content/posts/hello-world.mdx', 'utf8')
+const { data, content } = matter(raw)
+// data = { title, date, excerpt, tags }
+// content = the raw MDX body
+```
+
+Frontmatter for metadata. Markdown for content. React when I need it.
+
+## What I Left Out
+
+I deliberately chose **not** to include:
+
+- A headless CMS (Contentful, Sanity) — overkill for a personal site
+- A component library (shadcn, MUI) — I want to understand every CSS class
+- A database — everything is just files committed to git
+
+The simplest tool that does the job is usually the right tool.
+
+## The Result
+
+This site. Clean, fast, maintainable. No unnecessary dependencies. Easy to update by writing a Markdown file and pushing to `main`.
+
+Hopefully it stays that way.
