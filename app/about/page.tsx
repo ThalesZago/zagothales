@@ -7,6 +7,7 @@ export const metadata: Metadata = {
 }
 
 const SKILLS = [
+  'AEM (Adobe Experience Manager)',
   'TypeScript',
   'JavaScript',
   'React',
@@ -20,9 +21,10 @@ const SKILLS = [
 ]
 
 const TIMELINE = [
-  { year: '2024 – present', role: 'Senior Developer', place: 'Company Name' },
-  { year: '2022 – 2024', role: 'Full-Stack Developer', place: 'Previous Company' },
-  { year: '2020 – 2022', role: 'Junior Developer', place: 'First Company' },
+  { year: '2025 – present', role: 'Master Developer - Architect Master', place: 'CIANDT' },
+  { year: '2023 – 2025', role: 'Senior Full-Stack Developer', place: 'BRP' },
+  { year: '2020 – 2023', role: 'Junior - Mid Level Developer', place: 'Softvision' },
+  { year: '2018 – 2020', role: 'Internship', place: 'Dell Technologies' },
 ]
 
 export default function AboutPage() {
@@ -41,15 +43,14 @@ export default function AboutPage() {
           className="space-y-4 text-base leading-relaxed"
         >
           <p>
-            I&apos;m a software developer with a passion for building clean,
-            purposeful products. I focus on the web — from backend APIs to
-            polished user interfaces — and care deeply about code quality,
-            developer experience, and the details that make software feel right.
+            Hey, nice to meet you!
+            My name is Thales, I&apos;ve been passionate for development for more than 9 years now.
+            I work as a System Architect for CI&T, providing not only good tech solutions, but also aligned with client business, using AI as a strong arm.
+            Feel free to send me a message! :)
           </p>
           <p>
             When I&apos;m not coding, I enjoy writing about what I&apos;m
-            learning, exploring open-source projects, and occasionally tinkering
-            with side projects that may or may not ever ship.
+            learning, exploring open-source projects, and thinking if having a goose farm is a better choice.
           </p>
         </div>
       </section>
