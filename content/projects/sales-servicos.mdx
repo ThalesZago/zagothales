@@ -1,0 +1,77 @@
+---
+title: "Sales Serviços Aéreos"
+description: "Public-facing marketing website for a Brazilian executive aviation company — built with Nuxt 3, TypeScript, Vue 3, and Bootstrap 5."
+tags: ["Nuxt 3", "TypeScript", "Vue 3", "Bootstrap 5", "i18n", "SSR"]
+demo: "https://salesservicosaereos.com.br"
+date: "2024-12-22"
+---
+
+## Overview
+
+Sales Serviços Aéreos is the corporate website for a Brazilian executive aviation and air charter company based at Campo de Marte Airport in São Paulo. The site allows visitors to browse the aircraft fleet, request flight quotes, read company news, and get contact and hangar information.
+
+The project consumes a headless CMS backend (Strapi-compatible REST API) for dynamic content like blog articles and company history, while keeping the frontend fully SSR-rendered through Nuxt 3.
+
+## Tech Stack
+
+- **Framework**: Nuxt 3 with SSR enabled
+- **Language**: TypeScript (strict mode) + Vue 3 Single File Components
+- **Styling**: Bootstrap 5 + custom PostCSS pipeline with PurgeCSS and Autoprefixer
+- **Icons**: FontAwesome Free 6
+- **Internationalization**: `@nuxtjs/i18n` — Brazilian Portuguese, English, and Spanish
+- **Image optimization**: `@nuxt/image` with WebP/AVIF conversion and responsive breakpoints
+- **Content rendering**: `markdown-it` with `dompurify` for safe HTML output from CMS Markdown
+- **Email**: `nuxt-mail` for contact and safety report forms
+- **SEO**: `@nuxtjs/sitemap` with automatic route generation
+- **Analytics**: Google Tag Manager via `@nuxt/scripts`, Google Ads via client plugin
+- **Performance**: `nuxt-booster` for lazy hydration, Nitro SWR caching (1-hour routes, 1-year immutable assets)
+- **Bundler**: Vite (built into Nuxt)
+- **Hosting**: Node.js SSR server output
+
+## Features
+
+- Server-side rendering for all pages — great for SEO and first paint
+- Full multilingual support across three languages with locale-prefixed URLs (`/pt-BR/`, `/en/`, `/es/`)
+- Dynamic blog with search, powered by the CMS API, rendering Markdown content safely with DOMPurify sanitization
+- Aircraft fleet showcase with per-locale carousel images and a detail modal for each aircraft
+- Quote request form supporting executive flights and cargo, one-way and round-trip, dispatched via WhatsApp
+- Anonymous safety report form submitted by email
+- Image serving with WebP/AVIF, responsive sizing, and one-year immutable cache headers
+- Automatic XML sitemap at `/sitemap.xml`
+- RSS-ready article structure and social sharing on blog posts
+- CSS minification with PurgeCSS — only styles actually used in the build are shipped
+
+## How Content Works
+
+Dynamic content (blog posts, company history) is fetched from an external Strapi CMS at `admin.salesservicosaereos.com.br/api` using `useAsyncData` and `$fetch` inside Vue components. There are no custom Nitro server routes — Nuxt's SSR layer fetches and renders everything at request time, with SWR caching keeping the experience fast on repeat visits.
+
+Static content lives directly in Vue SFCs and i18n JSON files, meaning copy changes for the core pages go through source control rather than a CMS dashboard.
+
+## Project Structure
+
+```
+sales-servicos/
+├── nuxt.config.ts        # Framework config, modules, runtime env
+├── app.vue               # Root shell (NuxtLayout + NuxtPage)
+├── i18n/
+│   └── locales/          # pt-BR.json, en.json, es.json
+└── src/                  # srcDir alias (@/*)
+    ├── assets/           # Global CSS, SVG icons, images
+    ├── components/       # Reusable UI components (carousels, modals, hero)
+    ├── layouts/          # Default layout (header + slot + footer)
+    ├── pages/            # File-based routes (blog, airplanes, contacts…)
+    ├── sections/         # Page-level feature sections (quote form, newsletter)
+    └── utils/            # Shared helpers (Brazilian states enum, etc.)
+```
+
+## Lessons Learned
+
+It was a good experience to learn a new framework like Nuxt. It is pretty robust and has a lot of tools to help the development. I've also learned how to work with SEO and google analytics.
+
+Shipping a production SSR site to non-technical stakeholders taught me a lot about the gap between "works in dev" and "works in prod". Nuxt's hydration model means any mismatch between server and client output surfaces as a flash or layout shift that end users notice immediately — small discipline around consistent data fetching patterns pays off.
+
+Multilingual content also expands scope more than it seems upfront. Three locales means three versions of every piece of copy, every image path, and every SEO metadata tag. Building the i18n layer early rather than retrofitting it saved a significant amount of rework.
+
+I was not totally satisfied with the design and its responsiveness, but that was not on my control unfortunately
+
+I also believe that I could had created better routing methods. It was a bit confusing sometimes.
