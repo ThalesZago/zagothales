@@ -1,8 +1,8 @@
 import { getAllPosts } from '@/lib/posts'
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://yourdomain.com'
-const AUTHOR = 'Your Name'
-const SITE_TITLE = 'Your Name — Blog'
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://zagothales.com'
+const AUTHOR = 'Thales Zago'
+const SITE_TITLE = 'Thales Zago — Blog'
 const SITE_DESCRIPTION = 'Personal blog about software development, tools, and the craft of building.'
 
 export async function GET() {
